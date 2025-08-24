@@ -26,7 +26,9 @@ Python 3.x
 pandas, numpy
 matplotlib, seaborn
 scikit-learn
+statsmodels
 Jupyter Notebook
+
 
 
 # Project Workflow
