@@ -30,15 +30,14 @@ statsmodels
 Jupyter Notebook
 
 
-
 # Project Workflow
 
 Exploratory Data Analysis (EDA): Understand distributions, correlations, and outliers.
 
-Data Preprocessing: Handle missing values, feature engineering, encoding, and scaling.
+Data Preprocessing: Handle missing values, feature engineering, encoding.
 
-Model Training: Compare different regression models (e.g., Linear Regression).
+Model Training: Compare different regression models (Linear Regression with different features selection and different categories; LGBMRegressor with the best features selection of linear regression).
 
-Model Evaluation: 
+Model Evaluation: LGBMRegressor with numerical feature selection from correlation matrix and categorical feature selection from background analysis gave the best result (R²: 0.8754)
 
-Prediction on Test Data: 
+Prediction on Test Data: see "data/test_daten_predicted_LGBMR"
