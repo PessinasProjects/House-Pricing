@@ -12,7 +12,7 @@ Test data: test.csv – contains the same features, but without sale prices (use
 /
 ├── data/                # train.csv, test.csv
 ├── notebooks/           # Jupyter Notebooks for EDA, preprocessing, modeling
-│   ├── 01_EDA.ipynb
+│   ├── 01_ExploratoryDataAnalysis.ipynb
 │   ├── 02_Preprocessing.ipynb
 │   └── 03_Modeling.ipynb
 ├── scripts/             # Python scripts with reusable functions
@@ -22,22 +22,26 @@ Test data: test.csv – contains the same features, but without sale prices (use
 └── README.md            # This file
 
 # Technologies Used
-Python 3.x
-pandas, numpy
-matplotlib, seaborn
+Python
+pandas
+numpy
+matplotlib
+seaborn
 scikit-learn
 statsmodels
+scipy
+lightgbm
 Jupyter Notebook
 
 
 # Project Workflow
 
-Exploratory Data Analysis (EDA): Understand distributions, correlations, and outliers.
+Exploratory Data Analysis (EDA): Understand distributions, correlations, and outliers(*).
 
-Data Preprocessing: Handle missing values, feature engineering, encoding.
+Data Preprocessing: Handle missing values, encoding.
 
 Model Training: Compare different regression models (Linear Regression with different features selection and different categories; LGBMRegressor with the best features selection of linear regression).
 
-Model Evaluation: LGBMRegressor with numerical feature selection from correlation matrix and categorical feature selection from background analysis gave the best result (R²: 0.8754)
+Model Evaluation: LGBMRegressor with numerical feature selection from correlation matrix and categorical feature selection from background analysis gave the best result (R²: 0.8831)
 
 Prediction on Test Data: see "data/test_daten_predicted_LGBMR"
