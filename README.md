@@ -42,18 +42,35 @@ Data Preprocessing: Handle missing values, encoding. I started with dropping dup
 
 I separated numerical and categorical feature in order to select/ encode them if necessary.
 
-Numerical features have been selceted by correlation matrix. I selceted the features having a coefficient greater then 0.45. Then I used a Variance Inflation Factor (VIF) to exclude the features that are multicollinear. I compared the features with the biggest VIF and I excluded one of the two that shows a similar feature ('GrLivArea', 'TotRmsAbvGrd' -> above grade (ground) living area square feet; 'TotalBsmtSF', '1stFlrSF' -> Area des Basements; 'GarageCars','GarageArea').
+Numerical features have been selected by correlation matrix. I chose the features having a coefficient greater then 0.45. Then I used a Variance Inflation Factor (VIF) to exclude the features that are multicollinear. I compared the features with the biggest VIF and I excluded one of the two that shows a similar feature ('GrLivArea', 'TotRmsAbvGrd' -> above grade (ground) living area square feet; 'TotalBsmtSF', '1stFlrSF' -> Area des Basements; 'GarageCars','GarageArea').
 
 Categorical features has been analysed in two ways:  the first one with the anylysis of variance (or F-Anova test), the second one with human analysis and understanding of the features.
 
 For the F-Anova test I splitted the (cleaned) categorical features from the target one, then I applied the Chi Quadrat Test to exlude features that could be multiccolinear.
 
-For the 'human' analysis: see ExploratoryDataAnalysis.ipynb. I asked myself which fetaure I would give importance to before evaluating to buy a house. I followed this idea along the features that the dataset where offering me.
+For the 'human' analysis: see ExploratoryDataAnalysis.ipynb. I asked myself which fetaure I would give importance to before evaluating to buy a house. I followed this idea along the features that the dataset where offering me. Ecoding: I tried here on the one side with a division between nominal and ordinal categories (nominal with OneHotEncoder, ordinal with OrdinalEncoder), on the other side with a dimmy encoding.
 
 #TODO: Outliers
 
-Model Training: Compare different regression models (Linear Regression with different features selection and different categories; LGBMRegressor with the best features selection of linear regression).
+The selections of features have been saved in the data folder as .csv data. I built differents files to be used for the later modeling. 
 
-Model Evaluation: LGBMRegressor with numerical feature selection from correlation matrix and categorical feature selection from background analysis gave the best result (R²: 0.8831)
+train_cleaned_num.csv : numerical features
+train_cleaned_analyse.csv : numerical features + background-analysis selected categorical features -(ordinal VS nominal)
+train_cleaned_dummy_analyse : numerical features + encoded, background-analysis selected categorical features
+train_cleaned_anova : numerical fetaures + encoded, by F-anova selected categorical features
+whole_analyse_df.csv :  numerical features + background-analysis selected categorical features (no encoding)
+
+For the modelling I compared  machine learning models applied them to the different selections of features.
+
+I operated:
+
+a linear regression with the numerical features (R²:0.84); 
+a linear regression with numerical features + background-analysis selected categorical features (ordinal VS nominal) (R²:0.84)
+a linear regression with numerical features + encoded, background-analysis selected categorical features (R²: 0.85)
+a linear regression with numerical features + background-analysis selected categorical features encoded with OneHotEncoder in a (R²: 0.85)
+a linear regression with numerical features + F-Anova selected categorical features encoded with dummy (R²: 0.81)
+
+Then I trained a LGBMRegressor, Light Gradient Boosting Machine Regressor: it is a bit mighty as the linear regression and quite good for thie House Pricing project, as I read. I got a R² equal to 0.88. LGBMRegressor with numerical feature selection from correlation matrix and categorical feature selection from background analysis gave the best result.
+
 
 Prediction on Test Data: see "data/test_daten_predicted_LGBMR"
