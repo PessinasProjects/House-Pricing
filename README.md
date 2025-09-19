@@ -55,9 +55,13 @@ For the 'human' analysis: see ExploratoryDataAnalysis.ipynb. I asked myself whic
 The selections of features have been saved in the data folder as .csv data. I built differents files to be used for the later modeling. 
 
 train_cleaned_num.csv : numerical features
-train_cleaned_analyse.csv : numerical features + background-analysis selected categorical features -(ordinal VS nominal)
-train_cleaned_dummy_analyse : numerical features + encoded, background-analysis selected categorical features
-train_cleaned_anova : numerical fetaures + encoded, by F-anova selected categorical features
+
+train_cleaned_analyse.csv : numerical features + background-analysis selected categorical features (ordinal VS nominal encoding)
+
+train_cleaned_dummy_analyse : numerical features + background-analysis selected categorical features (dummy encoding)
+
+train_cleaned_anova : numerical fetaures + F-anova selected categorical features (dummy encoding)
+
 whole_analyse_df.csv :  numerical features + background-analysis selected categorical features (no encoding)
 
 For the modelling I compared  machine learning models applied them to the different selections of features.
@@ -65,10 +69,14 @@ For the modelling I compared  machine learning models applied them to the differ
 I operated:
 
 a linear regression with the numerical features (R²:0.84); 
-a linear regression with numerical features + background-analysis selected categorical features (ordinal VS nominal) (R²:0.84)
-a linear regression with numerical features + encoded, background-analysis selected categorical features (R²: 0.85)
-a linear regression with numerical features + background-analysis selected categorical features encoded with OneHotEncoder in a (R²: 0.85)
-a linear regression with numerical features + F-Anova selected categorical features encoded with dummy (R²: 0.81)
+
+a linear regression with numerical features + background-analysis selected categorical features (ordinal VS nominal) (R²:0.84);
+
+a linear regression with numerical features + encoded, background-analysis selected categorical features (R²: 0.85);
+
+a linear regression with numerical features + background-analysis selected categorical features encoded with OneHotEncoder in a (R²: 0.85);
+
+a linear regression with numerical features + F-Anova selected categorical features encoded with dummy (R²: 0.81);
 
 Then I trained a LGBMRegressor, Light Gradient Boosting Machine Regressor: it is a bit mighty as the linear regression and quite good for thie House Pricing project, as I read. I got a R² equal to 0.88. LGBMRegressor with numerical feature selection from correlation matrix and categorical feature selection from background analysis gave the best result.
 
