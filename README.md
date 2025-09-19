@@ -14,11 +14,11 @@ Test data: test.csv – contains the same features, but without sale prices (use
 
 ├── notebooks/           # Jupyter Notebooks for EDA, preprocessing, modeling
 
-│       ├── 01_ExploratoryDataAnalysis.ipynb
+│           ├── 01_ExploratoryDataAnalysis.ipynb
 
-│       ├── 02_Preprocessing.ipynb
+│           ├── 02_Preprocessing.ipynb
 
-│       └── 03_Modeling.ipynb
+│           └── 03_Modeling.ipynb
 
 ├── scripts/             # Python scripts with reusable functions
 
