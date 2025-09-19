@@ -11,23 +11,23 @@ Test data: test.csv – contains the same features, but without sale prices (use
 
 /
 ├── data/                # train.csv, test.csv
-│
+
 ├── notebooks/           # Jupyter Notebooks for EDA, preprocessing, modeling
-│   │
+
 │   ├── 01_ExploratoryDataAnalysis.ipynb
-│   │ 
+
 │   ├── 02_Preprocessing.ipynb
-│   │
+
 │   └── 03_Modeling.ipynb
-│
+
 ├── scripts/             # Python scripts with reusable functions
-│
+
 ├── output/              # Model predictions, plots, reports
-│
+
 ├── data_description.txt # Description of the data
-│
+
 ├── requirements.txt     # List of required Python packages
-│
+
 └── README.md            # This file
 
 # Technologies Used
